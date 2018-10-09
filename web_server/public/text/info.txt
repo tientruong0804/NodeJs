@@ -1,0 +1,14 @@
+shan.koe.mee
+keystore: keyamy.keystore
+keystore password: 123456s
+key alias: aliasamy
+key password: 123456s
+keyhash: n21NsqmtzHynzyMQXJTpX8Xu49Q=
+         n21NsqmtzHynzyMQXJTpX8Xu49Q
+
+myanmar.card.poker
+keystore: myanmar13.keystore
+keystore password: 123456
+key alias: myanmar13
+key password: 123456
+keyhash: Czg7ALxcydb8t3CY/L7mhPkjFH0=
