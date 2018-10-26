@@ -6,12 +6,11 @@ var models = require('./models.js');
 var app = express();
 
 var mongoDB = 'mongodb://localhost:27017/mydb';
-mongoose.connect(mongoDB);
+mongoose.connect(mongoDB,{ useNewUrlParser: true });
 
 mongoose.Promise = global.Promise;
 var db = mongoose.connection;
 db.on('error',console.error.bind(console,"MongoDB connection error:"));
-
 
 // Phuong thuc get() phan hoi mot GET Request
 app.get('/', function (req, res) {
@@ -20,7 +19,6 @@ app.get('/', function (req, res) {
 
   var q = url.parse(req.url,true).query;
   saveData(q.install,q.pkg,q.did);
-  
 });
 
 // Phuong thuc post() phan hoi mot POST Request

@@ -1,0 +1,88 @@
+<!doctype html>
+<html>
+
+<head>
+    <% include ../head%>
+</head>
+
+<header>
+    <% include ../headers%>
+</header>
+
+<%if(loi == "date"){%>
+    <body onload="showError('Ngày bắt đầu cần nhỏ hơn ngày kết thúc')"></body>
+<%}%>
+
+<%if(loi == "query"){%>
+    <body onload="showError('Không có dữ liệu')"></body>
+<%}%>
+
+<script>
+    function showError(loi) {
+        alert(loi);
+    }
+</script>
+
+<body>
+    <div class="container">
+    <h1>     Chọn mục kiểm tra</h1>
+    <form action="/querys/rp" method="post">
+
+        <h4>
+            <ul class="list-inline">
+                <li class="active"><a href="/querys/rp">install</a></li>
+                <li><a href="/querys/rp/pkgname">package name</a></li>
+                <li><a href="/querys/rpdaily">install daily</a></li>
+                <li><a href="/querys/rpoption">report option</a></li>
+            </ul>
+        
+        </h4>
+        <br>
+         Từ ngày <input type="date" name="dateFrom">
+         Đến <input type="date" name="dateEnd">
+        <input type="submit" value="Submit">
+    
+    </form> 
+
+    <br>
+
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Name Game</th>
+                <th>Active</th>
+                <th>Install</th>
+                <th>Install Device</th>
+            </tr>
+        </thead>
+        <% if(datas != null){%>
+        <!-- <%=datas%> -->
+        <!-- <%=datas.length%> -->
+        <% for(var i=0; i< datas.length; i++) {%>
+        <tbody>
+            <tr>
+                <td>
+                    <%= datas[i].name %>
+                </td>
+                <td>
+                    <%= datas[i].active %>
+                </td>
+                <td>
+                    <%= datas[i].install %>
+                </td>
+                <td>
+                    <%= datas[i].installdevice %>
+                </td>
+            </tr>
+        </tbody>
+        <%}%>
+        <%}%>
+    </table>
+</div>
+</body>
+
+<!-- <footer class="container-fluid text-center">
+        <% include ../footer%>
+</footer> -->
+
+</html>
